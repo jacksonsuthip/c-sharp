@@ -18,7 +18,7 @@ namespace ConsoleApp
         }
 
         // Main will call at first
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
 
             // creating object for Program class
@@ -59,7 +59,7 @@ namespace nameSpace2
 
         // Constructor should be public
         public Device() //Default Constructor
-        {}
+        { }
         public Device(int count_) // Parametrized Constructor
         {
             count = count_;
