@@ -40,23 +40,28 @@ namespace ConsoleApp
             deviceObj.getTotal();
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Inheritance 
-            nameSpace2.Mobile MobileObj = new nameSpace2.Mobile(7);
-            MobileObj.addDevice();
-            MobileObj.LogCheck();
+            nameSpace2.Mobile mobileObj = new nameSpace2.Mobile(7);
+            mobileObj.addDevice();
+            mobileObj.LogCheck();
             // Polymorphism (Overriding method)
-            nameSpace2.Device MobileObj1 = new nameSpace2.Mobile(10);
-            MobileObj1.addDevice();
-            MobileObj1.LogCheck();
+            nameSpace2.Device mobileObj1 = new nameSpace2.Mobile(10);
+            mobileObj1.addDevice();
+            mobileObj1.LogCheck();
 
-            nameSpace2.Device MobileObj2 = new nameSpace2.Device(10);
-            MobileObj2.addDevice();
-            MobileObj2.LogCheck();
+            nameSpace2.Device deviceObj2 = new nameSpace2.Device(10);
+            deviceObj2.addDevice();
+            deviceObj2.LogCheck();
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Abstraction (Inherit with other class to use it)
             // nameSpace3.Laptop LaptopObj = new nameSpace3.Laptop(); // It will Give error Laptop is abstract class
-            nameSpace3.LaptopColor LaptopColorObj = new nameSpace3.LaptopColor();
-            LaptopColorObj.getLaptopColor();
-            LaptopColorObj.getLaptop();
+            nameSpace3.LaptopColor laptopColorObj = new nameSpace3.LaptopColor();
+            laptopColorObj.getLaptopColor();
+            laptopColorObj.getLaptop();
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Interface
+            nameSpace4.Vehicle vehicleObj = new nameSpace4.Vehicle();
+            vehicleObj.getCar();
+            vehicleObj.getCar();
 
             Console.ReadKey();
         }
@@ -131,6 +136,30 @@ namespace nameSpace3
         public override void getLaptopColor()
         {
             Console.WriteLine("getLaptopColor in (class LaptopColor : Laptop)");
+        }
+    }
+}
+
+namespace nameSpace4
+{
+    interface ICar
+    {
+        void getCar();
+    }
+    interface IBike
+    {
+        void getBike();
+    }
+
+    class Vehicle : ICar, IBike // multiple interfaces
+    {
+        public void getCar() // have to use same method on (ICar, IBike)
+        {
+            Console.WriteLine("getCar - interface method on ICar");
+        }
+        public void getBike()
+        {
+            Console.WriteLine("getBike - interface method on IBike");
         }
     }
 }
