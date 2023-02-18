@@ -58,6 +58,7 @@ namespace ConsoleApp
             nameSpace3.LaptopColor laptopColorObj = new nameSpace3.LaptopColor();
             laptopColorObj.getLaptopColor();
             laptopColorObj.getLaptop();
+
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Interface
             nameSpace4.Vehicle vehicleObj = new nameSpace4.Vehicle();
