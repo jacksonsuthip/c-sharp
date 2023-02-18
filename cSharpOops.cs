@@ -18,7 +18,7 @@ namespace ConsoleApp
         }
 
         // Main will call at first
-        static void Main1(string[] args)
+        static void Main(string[] args)
         {
 
             // creating object for Program class
@@ -30,20 +30,33 @@ namespace ConsoleApp
             programObj.getValue1();
 
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // creating object in the different namespace
-            nameSpace2.Device deviceObj = new nameSpace2.Device();
-            Console.WriteLine("1 st --- " + deviceObj.countNew);
+            // creating object in the different namespace with Constructor int value
+            nameSpace2.Device deviceObj = new nameSpace2.Device(5);
+            Console.WriteLine("Constructor update Public --- " + deviceObj.countPublic);
+            // Using get, set
+            Console.WriteLine(" 1.Access Private value in Device class  --- " + deviceObj.countNew);
             deviceObj.countNew = 10;
-            Console.WriteLine("2 nd after value set --- " + deviceObj.countNew);
-            deviceObj.addDevice();
+            Console.WriteLine(" 2.Update Private value in Device class --- " + deviceObj.countNew);
+            deviceObj.getTotal();
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Inheritance 
+            nameSpace2.Mobile MobileObj = new nameSpace2.Mobile(7);
+            MobileObj.addDevice();
+            MobileObj.LogCheck();
+            // Polymorphism (Overriding method)
+            nameSpace2.Device MobileObj1 = new nameSpace2.Mobile(10);
+            MobileObj1.addDevice();
+            MobileObj1.LogCheck();
 
-            //nameSpace2.CollegeStudent collegeStudent = new nameSpace2.CollegeStudent();
-
-            //collegeStudent.addDevice();
-            //collegeStudent.votingstatus();
-
-            //nameSpace2.Device student1 = new nameSpace2.CollegeStudent();
-            //student1.addDevice();
+            nameSpace2.Device MobileObj2 = new nameSpace2.Device(10);
+            MobileObj2.addDevice();
+            MobileObj2.LogCheck();
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Abstraction (Inherit with other class to use it)
+            // nameSpace3.Laptop LaptopObj = new nameSpace3.Laptop(); // It will Give error Laptop is abstract class
+            nameSpace3.LaptopColor LaptopColorObj = new nameSpace3.LaptopColor();
+            LaptopColorObj.getLaptopColor();
+            LaptopColorObj.getLaptop();
 
             Console.ReadKey();
         }
@@ -55,40 +68,69 @@ namespace nameSpace2
 {
     class Device
     {
-        private int count;// Field
+        public int countPublic; // Field
+        private int countPrivate; // Field
 
         // Constructor should be public
-        public Device() //Default Constructor
-        { }
+        // public Device() // Default Constructor
+        // { }
         public Device(int count_) // Parametrized Constructor
         {
-            count = count_;
+            countPublic = count_;
         }
-        // int Age { get,set}
-        public int countNew   // property
+        public int countNew   // property - To update and get value from private method
         {
-            get { return countNew; }   // get method
-            set { countNew = value; }  // set method
+            get { return countPrivate; }  // get method
+            set { countPrivate = value; }  // set method
         }
-        public static void getvalue() // Method Static
+        public void getTotal()
         {
-            Console.WriteLine(" i am in tmperNs");
+            int total = countPublic + countPrivate;
+            Console.WriteLine("getTotal --- " + total);
         }
         public virtual void addDevice()
         {
-            Console.WriteLine("Inside virtual method" + count);
-        }
-    }
-    class CollegeStudent : Device
-    {
-        public override void addDevice()
-        {
-            Console.WriteLine("Body mass Index inside CollegeStudent");
+            Console.WriteLine("addDevice (virtual)method from Device Class --- " + countPrivate);
         }
         public void LogCheck()
         {
-            Console.WriteLine("LogCheck");
+            Console.WriteLine(" --LogCheck method Device Class-- ");
+        }
+
+    }
+    class Mobile : Device // Mobile - derived Class(child), Device - base Class(parent) 
+    {
+        public Mobile(int count_) : base(count_) // Constructor for Mobile
+        {
+        }
+
+        // public void addDevice()
+        public override void addDevice()
+        {
+            Console.WriteLine("addDevice (override)method from Mobile Class");
+        }
+        public new void LogCheck()
+        {
+            Console.WriteLine(" --LogCheck method Mobile Class-- ");
         }
     }
 }
 
+namespace nameSpace3
+{
+    abstract class Laptop // Abstract class
+    {
+        public abstract void getLaptopColor();
+        public void getLaptop()
+        {
+            Console.WriteLine("getLaptop in (abstract class Laptop)");
+        }
+    }
+    class LaptopColor : Laptop
+    {
+        public override void getLaptopColor()
+        {
+            Console.WriteLine("getLaptopColor in (class LaptopColor : Laptop)");
+        }
+    }
+}

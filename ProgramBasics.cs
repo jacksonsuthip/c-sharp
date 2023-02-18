@@ -5,7 +5,7 @@ namespace ProgramBasics
 {
     class ProgramBasics
     {
-        static void Main1(string[] args)
+        static void _Main(string[] args)
         {
             // int number = 5;
             // double numberDouble = 5.99D;

@@ -11,7 +11,7 @@ namespace StudyMethod
             int z = x + y;
             return z;
         }
-        static void Main(string[] args)
+        static void _Main(string[] args)
         {
             int result = onAdd(5, 3);
             Console.WriteLine("result1 - " + result);
