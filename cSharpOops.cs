@@ -65,6 +65,13 @@ namespace ConsoleApp
             vehicleObj.getCar();
             vehicleObj.getCar();
 
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Enums
+            int dbInt = (int)namespace5.AwsCertificationSPECIALTY.Database;
+            string dbString = namespace5.AwsCertificationSPECIALTY.Database.ToString();
+            Console.WriteLine("Enums: " + dbInt);
+            Console.WriteLine("Enums: " + dbString);
+
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
             Console.ReadKey();
         }
@@ -85,7 +92,7 @@ namespace nameSpace2
         {
             countPublic = count_;
         }
-        public int countNew   // property - To update and get value from private method
+        public int countNew   // property - To set and get value from private variable
         {
             get { return countPrivate; }  // get method
             set { countPrivate = value; }  // set method
@@ -163,5 +170,35 @@ namespace nameSpace4
         {
             Console.WriteLine("getBike - interface method on IBike");
         }
+    }
+}
+
+namespace namespace5
+{
+    enum AwsCertificationFOUNDATIONAL
+    {
+        CloudPractitioner
+    }
+    enum AwsCertificationASSOCIATE
+    {
+        SolutionsArchitect,
+        Developer,
+        SysOpsAdministrator,
+    }
+
+    enum AwsCertificationPROFESSIONAL
+    {
+        SolutionsArchitect,
+        DevOpsEngineer
+    }
+
+    enum AwsCertificationSPECIALTY
+    {
+        AdvancedNetworking,
+        DataAnalytics,
+        Database,
+        MachineLearning,
+        Security,
+        SAPonAWS
     }
 }
