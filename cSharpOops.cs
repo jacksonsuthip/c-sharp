@@ -18,7 +18,7 @@ namespace ConsoleApp
         }
 
         // Main will call at first
-        static void Main(string[] args)
+        static void _Main(string[] args)
         {
             // creating object for Program class
             Program programObj = new Program();
@@ -95,7 +95,7 @@ namespace nameSpace2
         public int countNew   // property - To set and get value from private variable
         {
             get { return countPrivate; }  // get method
-            set { countPrivate = value; }  // set method
+            set { countPrivate = value; }  // set method - can also set condition like *if(value != "") countPrivate = value;*
         }
         public void getTotal()
         {

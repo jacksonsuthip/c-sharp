@@ -5,7 +5,7 @@ namespace ProgramBasics
 {
     class ProgramBasics
     {
-        static void _Main(string[] args)
+        static void Main(string[] args)
         {
             // int number = 5;
             // double numberDouble = 5.99D;
@@ -16,35 +16,42 @@ namespace ProgramBasics
             // multiple varibals
             int x = 5, y = 6, z = 4;
             Console.WriteLine("--" + x + y + z);
+
             ///////////////////////////////////////////////////////////////////////////////////////////////
             // to print
             Console.WriteLine(stringLetters + " " + oneLetter);
             Console.WriteLine(3 + 3);
+
             /////////////////////////////////////////////////////////////////////////////////////////////
             int myInt = 10;
             // convert int to string
             Console.WriteLine("type casting - " + Convert.ToString(myInt));
+
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // get input using cmd using ReadLine()
             Console.WriteLine("Enter username:");
             string userName = "aj";
             // userName = Console.ReadLine();
             Console.WriteLine("Username is: " + userName);
+
             ///////////////////////////////////////////////////////////////////////////////////////////////
             // operators   +=	x += 3	x = x + 3
             //////////////////////////////////////////////////////////////////////////////////////////////
             string txt = "Hello World";
             Console.WriteLine(txt.ToUpper());   // Outputs "HELLO WORLD"
             Console.WriteLine(txt.ToLower());   // Outputs "hello world"
+
             //////////////////////////////////////////////////////////////////////////////////////////////
             // interpolation
             string firstName = "John";
             string lastName = "jack";
             string name = $"Hellow : {firstName} - {lastName}";
             Console.WriteLine(name);
+
             ///////////////////////////////////////////////////////////////////////////////////////////////////
             DateTime today = DateTime.Today;
             Console.WriteLine(today);
+
             ///////////////////////////////////////////////////
             // if else
             int time = 20;
@@ -56,6 +63,7 @@ namespace ProgramBasics
             {
                 Console.WriteLine("biiii");
             }
+
             //////////////////////////////////////////////////////////////////////////////////////////
             // while loop
             int i = 0;
@@ -64,12 +72,14 @@ namespace ProgramBasics
                 Console.WriteLine("while loop - " + i);
                 i += 1; // or i++ or i = i + 1
             }
+
             /////////////////////////////////////////////////////////////////////////////////////////
             // for loop
             for (int j = 0; j <= 10; j = j + 2)
             {
                 Console.WriteLine("for loop - " + j);
             }
+
             /////////////////////////////////////////////////////////////////////////////////////////
             // foreach loop
             string[] device = { "Hp", "Dell", "Lenovo" };
@@ -77,6 +87,7 @@ namespace ProgramBasics
             {
                 Console.WriteLine("foreach loop - " + deviceName);
             }
+
             ////////////////////////////////////////////////////////////////////////////////////////
             // Array in c#
             int[] myNum = { 10, 20, 30, 40 };
@@ -93,6 +104,14 @@ namespace ProgramBasics
             string[] cars2 = new string[] { "Volvo", "BMW", "Ford", "Mazda" };
             // Create an array of four elements, omitting the new keyword, and without specifying the size
             string[] cars3 = { "Volvo", "BMW", "Ford", "Mazda" };
+
+            ///////////////////////////////////////////////////////////////////////////
+            // Find Radius Of Circle
+            Console.WriteLine("Enter Area:");
+            string areaStr = Console.ReadLine();
+            double areaDou = double.Parse(areaStr);
+            double radiusDou = Math.Sqrt(areaDou / Math.PI);
+            Console.WriteLine("Radius of {0} is {1}", areaDou, radiusDou); // {0} -> areaDou, {1} -> radiusDou
         }
     }
 }
